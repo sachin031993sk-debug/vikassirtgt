@@ -1,0 +1,236 @@
+<!-- templates/student.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body class="student-body">
+
+<div class="student-overlay"></div>
+
+<div class="student-dashboard">
+
+    <!-- TOP -->
+
+    <div class="student-topbar">
+
+        <div>
+
+            <h2>
+                👋 Welcome
+            </h2>
+
+            <p>
+                {{ student.name }}
+            </p>
+
+        </div>
+
+        <div class="student-profile">
+            🎓
+        </div>
+
+    </div>
+
+    <!-- CARDS -->
+
+    <div class="student-cards">
+
+        <div class="student-card blue-card">
+
+            <div class="card-icon">
+                🆔
+            </div>
+
+            <h3>
+                Student ID
+            </h3>
+
+            <p>
+                {{ student.sid }}
+            </p>
+
+        </div>
+
+        <div class="student-card purple-card">
+
+            <div class="card-icon">
+                📘
+            </div>
+
+            <h3>
+                Roll Number
+            </h3>
+
+            <p>
+                {{ student.roll }}
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- NOTES -->
+
+    <div class="student-panel">
+
+        <h2>
+            📄 Study Notes
+        </h2>
+
+        {% for note in notes %}
+
+        <div class="student-box">
+
+            <div>
+
+                <h3>
+                    {{ note }}
+                </h3>
+
+                <p>
+                    PDF Notes
+                </p>
+
+            </div>
+
+            <a href="/uploads/{{ note }}"
+               target="_blank">
+
+               Open
+
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <!-- VIDEOS -->
+
+    <div class="student-panel">
+
+        <h2>
+            🎥 Video Lectures
+        </h2>
+
+        {% for video in videos %}
+
+        <div class="student-box">
+
+            <div>
+
+                <h3>
+                    {{ video.title }}
+                </h3>
+
+                <p>
+                    Video Lecture
+                </p>
+
+            </div>
+
+            <a href="{{ video.link }}"
+               target="_blank">
+
+               Watch
+
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+<!-- DOUBT SECTION -->
+
+<div class="student-panel">
+
+    <h2>
+        ❓ Ask Doubt
+    </h2>
+
+    <form action="/send_doubt"
+          method="POST">
+
+        <input type="hidden"
+               name="student_name"
+               value="{{ student.name }}">
+
+        <textarea name="message"
+                  placeholder="Write your doubt..."
+                  required></textarea>
+
+        <button type="submit">
+
+            Send Doubt
+
+        </button>
+
+    </form>
+
+</div>
+<!-- REPLIES -->
+
+<div class="student-panel">
+
+    <h2>
+        💬 Teacher Replies
+    </h2>
+
+    {% if student.name in doubts %}
+
+        {% for msg in doubts[student.name] %}
+
+        <div class="student-box">
+
+            <h3>
+                ❓ {{ msg.question }}
+            </h3>
+
+            <p>
+
+                {% if msg.reply %}
+
+                    ✅ {{ msg.reply }}
+
+                {% else %}
+
+                    ⏳ Waiting for teacher reply...
+
+                {% endif %}
+
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>
+            No doubts yet.
+        </p>
+
+    {% endif %}
+
+</div>
+</body>
+
+</html>

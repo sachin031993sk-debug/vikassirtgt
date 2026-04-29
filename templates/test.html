@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+</div>
+
+<div class="container">
+
+<form method="POST">
+
+{% for q in questions %}
+
+<div class="card">
+
+<h3>
+{{ q.question }}
+</h3>
+
+{% for option in q.options %}
+
+<label>
+<input type="radio"
+       name="q{{ loop.index0 }}"
+       value="{{ option }}">
+{{ option }}
+</label>
+
+<br><br>
+
+{% endfor %}
+
+</div>
+
+{% endfor %}
+
+<button type="submit">
+Submit Test
+</button>
+
+</form>
+
+{% if score is not none %}
+
+<div class="card">
+
+<h2>
+Your Score: {{ score }}/{{ questions|length }}
+</h2>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>

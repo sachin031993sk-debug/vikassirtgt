@@ -1,0 +1,1133 @@
+/* ================= FULL MOBILE APP UI ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#eef2ff;
+}
+
+/* ================= LOGIN PAGE ================= */
+
+.login-page{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+}
+
+.login-box{
+    width:100%;
+    max-width:320px;
+    background:white;
+    border-radius:30px;
+    padding:30px 25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    text-align:center;
+
+    backdrop-filter:blur(10px);
+border:2px solid rgba(255,255,255,0.2);
+animation:pop 0.5s ease;
+}
+
+.login-image{
+    width:120px;
+    margin-bottom:20px;
+}
+
+.login-title{
+    font-size:28px;
+    font-weight:bold;
+    color:#222;
+    margin-bottom:8px;
+}
+
+.login-subtitle{
+    color:#666;
+    margin-bottom:25px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:14px;
+    background:#f1f5ff;
+    font-size:15px;
+    outline:none;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(45deg,#4f46e5,#7c3aed);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+/* ================= MOBILE DASHBOARD ================= */
+
+.app{
+    display:flex;
+    min-height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:80px;
+    background:linear-gradient(180deg,#1e1b4b,#4f46e5);
+    padding-top:20px;
+    position:fixed;
+    height:100%;
+    overflow:auto;
+}
+
+.logo{
+    color:white;
+    text-align:center;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    padding:10px;
+}
+
+.menu a{
+    text-decoration:none;
+}
+
+.menu-item{
+    width:60px;
+    height:60px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.08);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:25px;
+    transition:0.3s;
+}
+
+.menu-item:hover{
+    background:white;
+    color:#4f46e5;
+    transform:scale(1.05);
+}
+
+.active{
+    background:white;
+    color:#4f46e5;
+}
+
+/* MAIN */
+
+.main{
+    margin-left:80px;
+    width:100%;
+    padding:15px;
+}
+
+/* TOPBAR */
+
+.topbar{
+    background:linear-gradient(45deg,#4f46e5,#7c3aed);
+    border-radius:22px;
+    padding:18px;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.topbar h2{
+    font-size:20px;
+}
+
+.profile{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:white;
+    color:#4f46e5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.card{
+    padding:18px;
+    border-radius:22px;
+    color:white;
+}
+
+.blue{
+    background:linear-gradient(45deg,#2563eb,#3b82f6);
+}
+
+.purple{
+    background:linear-gradient(45deg,#7c3aed,#9333ea);
+}
+
+.green{
+    background:linear-gradient(45deg,#059669,#10b981);
+}
+
+.orange{
+    background:linear-gradient(45deg,#ea580c,#fb923c);
+}
+
+.card h3{
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:24px;
+    font-weight:bold;
+}
+
+/* PANEL */
+
+.panel{
+    background:white;
+    border-radius:25px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.panel h2{
+    margin-bottom:18px;
+    color:#222;
+}
+
+/* STUDENT BOX */
+
+.student-box{
+    background:#f5f7ff;
+    padding:15px;
+    border-radius:18px;
+    margin-bottom:15px;
+}
+
+.student-box h3{
+    margin-bottom:8px;
+    color:#222;
+}
+
+.student-box p{
+    color:#555;
+    margin-bottom:5px;
+}
+
+/* NOTES */
+
+.note-box{
+    background:#eef2ff;
+    padding:15px;
+    border-radius:18px;
+    margin-bottom:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.note-box a{
+    text-decoration:none;
+    color:#4f46e5;
+    font-weight:bold;
+}
+
+/* TABLE */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table th{
+    background:#4f46e5;
+    color:white;
+    padding:14px;
+    font-size:14px;
+}
+
+table td{
+    padding:12px;
+    text-align:center;
+    background:white;
+    border-bottom:1px solid #eee;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+}
+
+.hidden{
+    display:none;
+}
+
+.delete-btn{
+    background:#ef4444;
+    margin-top:10px;
+}
+
+.delete-btn:hover{
+    opacity:0.9;
+}
+
+@keyframes pop{
+
+    from{
+        transform:scale(0.8);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+/* ================= STUDENT DASHBOARD ================= */
+
+.student-body{
+    margin:0;
+    padding:20px;
+    font-family:'Segoe UI',sans-serif;
+    min-height:100vh;
+    background:linear-gradient(135deg,#1e1b4b,#4f46e5,#7c3aed);
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* OVERLAY */
+
+.student-overlay{
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top left,
+    rgba(255,255,255,0.15),
+    transparent 30%),
+
+    radial-gradient(circle at bottom right,
+    rgba(255,255,255,0.1),
+    transparent 30%);
+}
+
+/* DASHBOARD */
+
+.student-dashboard{
+    position:relative;
+    z-index:2;
+    max-width:500px;
+    margin:auto;
+}
+
+/* TOPBAR */
+
+.student-topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+    color:white;
+}
+
+.student-topbar h2{
+    margin:0;
+    font-size:30px;
+}
+
+.student-topbar p{
+    margin-top:5px;
+    opacity:0.9;
+}
+
+/* PROFILE */
+
+.student-profile{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:32px;
+    border:2px solid rgba(255,255,255,0.2);
+}
+
+/* CARDS */
+
+.student-cards{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.student-card{
+    padding:20px;
+    border-radius:25px;
+    color:white;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.student-card:hover{
+    transform:translateY(-5px);
+}
+
+.card-icon{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.student-card h3{
+    margin-bottom:10px;
+}
+
+.student-card p{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.blue-card{
+    background:linear-gradient(45deg,#2563eb,#3b82f6);
+}
+
+.purple-card{
+    background:linear-gradient(45deg,#7c3aed,#9333ea);
+}
+
+/* PANELS */
+
+.student-panel{
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(12px);
+    border-radius:30px;
+    padding:20px;
+    margin-bottom:25px;
+    border:1px solid rgba(255,255,255,0.15);
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.student-panel h2{
+    color:white;
+    margin-bottom:20px;
+}
+
+/* BOX */
+
+.student-box{
+    background:rgba(255,255,255,0.15);
+    border-radius:20px;
+    padding:15px;
+    margin-bottom:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:white;
+    transition:0.3s;
+}
+
+.student-box:hover{
+    transform:scale(1.02);
+}
+
+.student-box h3{
+    margin:0;
+}
+
+.student-box p{
+    margin-top:5px;
+    opacity:0.8;
+    font-size:14px;
+}
+
+/* BUTTON */
+
+.student-box a{
+    text-decoration:none;
+    background:white;
+    color:#4f46e5;
+    padding:10px 18px;
+    border-radius:14px;
+    font-weight:bold;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .student-cards{
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* ================= HOME PAGE ================= */
+
+.home-body{
+    margin:0;
+    padding:0;
+    font-family:'Segoe UI',sans-serif;
+    min-height:100vh;
+    background:#0f172a;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* BACKGROUND */
+
+.home-bg{
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top left,
+    rgba(99,102,241,0.35),
+    transparent 30%),
+
+    radial-gradient(circle at bottom right,
+    rgba(168,85,247,0.35),
+    transparent 30%),
+
+    linear-gradient(135deg,#111827,#1e1b4b,#312e81);
+
+    z-index:0;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:relative;
+    z-index:2;
+    margin:20px;
+    padding:18px 25px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.1);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.nav-right{
+    color:#ddd;
+}
+
+/* HERO */
+
+.hero{
+    position:relative;
+    z-index:2;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+    padding:60px 8%;
+    flex-wrap:wrap;
+}
+
+/* LEFT */
+
+.hero-left{
+    flex:1;
+    min-width:280px;
+}
+
+.hero-left h1{
+    font-size:60px;
+    line-height:1.2;
+    color:white;
+    margin-bottom:20px;
+}
+
+.hero-left p{
+    color:#d1d5db;
+    font-size:20px;
+    margin-bottom:35px;
+    line-height:1.7;
+}
+
+/* BUTTONS */
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.hero-buttons a{
+    text-decoration:none;
+    padding:16px 30px;
+    border-radius:18px;
+    background:linear-gradient(45deg,#2563eb,#7c3aed);
+    color:white;
+    font-weight:bold;
+    transition:0.3s;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.hero-buttons a:hover{
+    transform:translateY(-5px);
+}
+
+.student-btn{
+    background:rgba(255,255,255,0.15) !important;
+    border:1px solid rgba(255,255,255,0.2);
+}
+
+/* RIGHT CARD */
+
+.hero-right{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    min-width:280px;
+}
+
+.hero-card{
+    width:340px;
+    padding:40px;
+    border-radius:35px;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.15);
+    text-align:center;
+    color:white;
+    box-shadow:0 15px 35px rgba(0,0,0,0.25);
+    animation:float 3s ease-in-out infinite;
+}
+
+.hero-icon{
+    font-size:70px;
+    margin-bottom:20px;
+}
+
+.hero-card h2{
+    margin-bottom:15px;
+}
+
+.hero-card p{
+    color:#ddd;
+    line-height:1.7;
+}
+
+/* FEATURES */
+
+.features{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    padding:20px 8% 70px;
+}
+
+.feature-box{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    border-radius:28px;
+    padding:30px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.1);
+    color:white;
+    transition:0.3s;
+}
+
+.feature-box:hover{
+    transform:translateY(-8px);
+}
+
+.feature-icon{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.feature-box h3{
+    margin-bottom:15px;
+}
+
+.feature-box p{
+    color:#ddd;
+    line-height:1.6;
+}
+
+/* ANIMATION */
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .hero{
+        padding-top:30px;
+    }
+
+    .hero-left h1{
+        font-size:42px;
+    }
+
+    .hero-left p{
+        font-size:17px;
+    }
+
+    .navbar{
+        margin:12px;
+    }
+
+}
+
+/* DOUBT BOX */
+
+textarea{
+    width:100%;
+    height:120px;
+    border:none;
+    outline:none;
+    border-radius:20px;
+    padding:15px;
+    margin-top:10px;
+    font-size:16px;
+    resize:none;
+}
+
+.student-panel button{
+    margin-top:15px;
+    border:none;
+    background:linear-gradient(45deg,#2563eb,#7c3aed);
+    color:white;
+    padding:14px 22px;
+    border-radius:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ================= DOUBT SECTION ================= */
+
+.note-box{
+    flex-direction:column;
+    align-items:flex-start !important;
+    gap:15px;
+}
+
+/* DOUBT TEXT */
+
+.note-box p{
+    width:100%;
+    word-wrap:break-word;
+    line-height:1.7;
+    font-size:15px;
+}
+
+/* REPLY INPUT */
+
+.note-box form{
+    width:100%;
+}
+
+.note-box form input{
+
+    width:100%;
+    min-height:55px;
+
+    padding:15px;
+
+    border:none;
+    outline:none;
+
+    border-radius:18px;
+
+    font-size:16px;
+
+    margin-top:10px;
+
+    background:#f3f4f6;
+}
+
+/* BUTTON */
+
+.note-box form button{
+
+    margin-top:12px;
+
+    padding:12px 22px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:linear-gradient(45deg,#2563eb,#7c3aed);
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    font-size:15px;
+}
+
+/* ================= BIG DOUBT PANEL ================= */
+
+.doubts-full{
+
+    width:100%;
+
+    min-height:80vh;
+
+    padding:30px;
+
+    border-radius:30px;
+
+    background:white;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* BIG DOUBT BOX */
+
+.doubts-full .note-box{
+
+    width:100%;
+
+    margin-top:25px;
+
+    padding:25px;
+
+    border-radius:25px;
+
+    background:#f3f4f6;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+/* STUDENT NAME */
+
+.doubts-full h3{
+
+    font-size:24px;
+
+    margin-bottom:10px;
+
+    color:#111827;
+}
+
+/* QUESTION */
+
+.doubts-full p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#374151;
+}
+
+/* REPLY BOX */
+
+.doubts-full input{
+
+    width:100%;
+
+    min-height:65px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    font-size:17px;
+
+    margin-top:10px;
+
+    background:white;
+}
+
+/* BUTTON */
+
+.doubts-full button{
+
+    width:220px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:linear-gradient(45deg,#2563eb,#7c3aed);
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    margin-top:15px;
+}
+
+/* DELETE BUTTON */
+
+.delete-btn{
+
+    display:inline-block;
+
+    margin-top:12px;
+
+    padding:12px 18px;
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    background:#ef4444;
+
+    color:white;
+
+    font-weight:bold;
+}
+
+/* ================= FULL SCREEN DOUBTS ================= */
+
+.doubts-full{
+
+    width:100%;
+
+    min-height:85vh;
+
+    padding:30px;
+
+    border-radius:30px;
+
+    background:white;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.doubts-full .note-box{
+
+    width:100%;
+
+    background:#f3f4f6;
+
+    padding:25px;
+
+    border-radius:25px;
+
+    margin-top:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+.doubts-full h3{
+
+    font-size:24px;
+
+    color:#111827;
+}
+
+.doubts-full p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#374151;
+}
+
+.doubts-full form{
+
+    width:100%;
+}
+
+.doubts-full input{
+
+    width:100%;
+
+    min-height:65px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    font-size:17px;
+
+    background:white;
+
+    margin-top:10px;
+}
+
+.doubts-full button{
+
+    margin-top:15px;
+
+    width:220px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:linear-gradient(45deg,#2563eb,#7c3aed);
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.delete-btn{
+
+    display:inline-block;
+
+    margin-top:12px;
+
+    padding:12px 18px;
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    background:#ef4444;
+
+    color:white;
+
+    font-weight:bold;
+
+    width:fit-content;
+}
+
+/* ================= DOUBTS SECTION ================= */
+
+#doubts{
+
+    width:100%;
+
+    padding:20px;
+
+    box-sizing:border-box;
+}
+
+#doubts .panel{
+
+    width:100%;
+
+    min-height:85vh;
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+#doubts .note-box{
+
+    width:100%;
+
+    background:#f3f4f6;
+
+    padding:25px;
+
+    border-radius:25px;
+
+    margin-top:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}

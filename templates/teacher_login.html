@@ -1,0 +1,53 @@
+<!-- templates/teacher_login.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Teacher Login</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body class="login-page">
+
+<div class="login-box">
+
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png"
+         class="login-image">
+
+    <div class="login-title">
+        Teacher Login
+    </div>
+
+    <div class="login-subtitle">
+        Welcome to Vikas Sir Classes
+    </div>
+
+    <form method="POST">
+
+        <input type="text"
+               name="username"
+               placeholder="Username">
+
+        <input type="password"
+               name="password"
+               placeholder="Password">
+
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

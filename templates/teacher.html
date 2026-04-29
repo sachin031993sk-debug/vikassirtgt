@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Teacher Dashboard</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <div class="logo">
+            📚 Vikas Sir
+        </div>
+
+        <div class="menu">
+
+            <div class="menu-item active"
+                 onclick="showSection('dashboard', this)">
+                 🏠
+            </div>
+
+            <div class="menu-item"
+                 onclick="showSection('students', this)">
+                 👨‍🎓
+            </div>
+
+            <div class="menu-item"
+                 onclick="showSection('notes', this)">
+                 📄
+            </div>
+            <div class="menu-item"
+     onclick="showSection('videos', this)">
+     🎥
+</div>
+           <div class="menu-item"
+     onclick="showSection('doubts', this)">
+
+     ❓
+
+</div>
+
+        </div>
+
+    </div>
+
+    <!-- MAIN -->
+
+    <div class="main">
+
+        <!-- TOPBAR -->
+
+        <div class="topbar">
+
+            <h2>
+                Welcome Sir 👋
+            </h2>
+
+            <div class="profile">
+                👨‍🏫
+            </div>
+
+        </div>
+
+        <!-- DASHBOARD -->
+
+        <div id="dashboard" class="section">
+
+            <div class="cards">
+
+                <div class="card blue">
+
+                    <h3>Total Students</h3>
+
+                    <p>{{ students|length }}</p>
+
+                </div>
+
+                <div class="card purple">
+
+                    <h3>Uploaded Notes</h3>
+
+                    <p>{{ notes|length }}</p>
+
+                </div>
+
+                <div class="card green">
+
+    <h3>
+        Video Lectures
+    </h3>
+
+    <h1>
+        {{ videos|length }}
+    </h1>
+
+</div>
+
+                <div class="card orange">
+
+                    <h3>Tests</h3>
+
+                    <p>Active</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- STUDENTS -->
+
+        <div id="students" class="section hidden">
+
+            <div class="panel">
+
+                <h2>
+                    ➕ Add Student
+                </h2>
+
+                <form action="/add_student"
+                      method="POST">
+
+                    <input type="text"
+       name="name"
+       placeholder="Student Name"
+       required>
+
+<input type="text"
+       name="sid"
+       placeholder="Student ID"
+       required>
+
+<input type="text"
+       name="roll"
+       placeholder="Roll Number"
+       required>
+
+                    <button type="submit">
+                        Add Student
+                    </button>
+
+                </form>
+
+            </div>
+
+            <div class="panel">
+
+                <h2>
+                    👨‍🎓 Students
+                </h2>
+
+                {% for s in students %}
+
+                <div class="student-box">
+
+                    <h3>{{ s[1] }}</h3>
+
+                    <p>ID : {{ s[2] }}</p>
+
+                    <p>Roll : {{ s[4] }}</p>
+
+                    <a href="/delete_student/{{ s[0] }}">
+
+    <button class="delete-btn">
+        Delete Student
+    </button>
+
+</a>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        <!-- NOTES -->
+
+        <div id="notes" class="section hidden">
+
+            <div class="panel">
+
+                <h2>
+                    📄 Upload Notes
+                </h2>
+
+                <form action="/upload_note"
+                      method="POST"
+                      enctype="multipart/form-data">
+
+                    <input type="file"
+                           name="note">
+
+                    <button type="submit">
+                        Upload PDF
+                    </button>
+
+                </form>
+
+            </div>
+
+            <div class="panel">
+
+                <h2>
+                    📚 All Notes
+                </h2>
+
+                {% for note in notes %}
+
+                <div class="note-box">
+
+                    <span>{{ note }}</span>
+
+                    <a href="/uploads/{{ note }}">
+                        Open
+                    </a>
+                    <a href="/delete_note/{{ note }}">
+
+    <button class="delete-btn">
+        Delete
+    </button>
+
+</a>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+<!-- VIDEO LECTURES -->
+
+<!-- VIDEO LECTURES -->
+
+<div id="videos" class="section hidden">
+
+    <div class="panel">
+
+        <h2>
+            🎥 Upload Video Lecture
+        </h2>
+<div class="menu-item"
+     onclick="showSection('doubts', this)">
+
+     ❓
+
+</div>
+        <form action="/add_video"
+              method="POST">
+
+            <input type="text"
+                   name="title"
+                   placeholder="Lecture Title"
+                   required>
+
+            <input type="text"
+                   name="link"
+                   placeholder="Paste YouTube Video Link"
+                   required>
+
+            <button type="submit">
+                Upload Video
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="panel">
+
+        <h2>
+            📺 Video Lectures
+        </h2>
+
+        {% for video in videos %}
+
+        {% set index = loop.index0 %}
+
+        <div class="note-box">
+
+            <span>
+                {{ video.title }}
+            </span>
+
+            <div>
+
+                <a href="{{ video.link }}"
+                   target="_blank">
+
+                   Watch
+
+                </a>
+
+                <a href="/delete_video/{{ index }}">
+
+                    <button class="delete-btn">
+                        Delete
+                    </button>
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+</div>
+       
+<!-- JAVASCRIPT -->
+
+<script>
+
+function showSection(id, element){
+
+    let sections =
+        document.querySelectorAll('.section');
+
+    sections.forEach(section => {
+
+        section.classList.add('hidden');
+
+    });
+
+    document
+        .getElementById(id)
+        .classList.remove('hidden');
+
+    let menuItems =
+        document.querySelectorAll('.menu-item');
+
+    menuItems.forEach(item => {
+
+        item.classList.remove('active');
+
+    });
+
+    element.classList.add('active');
+
+}
+
+</script>
+
+</body>
+<!-- DOUBTS -->
+
+<div id="doubts"
+     class="section"
+
+    <div class="panel doubts-full">
+
+        <h2>
+           
+        </h2>
+
+        {% for student, msgs in doubts.items() %}
+
+            {% for msg in msgs %}
+
+            <div class="note-box">
+
+                <div>
+
+                    <h3>
+                        {{ student }}
+                    </h3>
+
+                    <p>
+                        {{ msg.question }}
+                    </p>
+
+                    {% if msg.reply %}
+
+                    <p style="color:lime; margin-top:10px;">
+
+                        ✅ Reply:
+                        {{ msg.reply }}
+
+                    </p>
+
+                    {% endif %}
+
+                    <form action="/reply_doubt/{{ student }}/{{ loop.index0 }}"
+                          method="POST">
+
+                        <input type="text"
+                               name="reply"
+                               placeholder="Write reply..."
+                               required>
+
+                        <button type="submit">
+
+                            Send Reply
+<a href="/delete_doubt/{{ student }}/{{ loop.index0 }}"
+   class="delete-btn">
+
+   Delete Doubt
+
+</a>
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        {% endfor %}
+
+    </div>
+
+</div>
+<!-- ================= DOUBTS SECTION ================= -->
+
+<div id="doubts"
+     class="section hidden">
+
+    <div class="panel doubts-full">
+
+        <h2>
+            ❓ Student Doubts
+        </h2>
+
+        {% for student, msgs in doubts.items() %}
+
+            {% for msg in msgs %}
+
+            <div class="note-box">
+
+                <h3>
+                    {{ student }}
+                </h3>
+
+                <p>
+                    {{ msg.question }}
+                </p>
+
+                {% if msg.reply %}
+
+                <p style="color:lime;">
+
+                    ✅ Reply:
+                    {{ msg.reply }}
+
+                </p>
+
+                {% endif %}
+
+                <form action="/reply_doubt/{{ student }}/{{ loop.index0 }}"
+                      method="POST">
+
+                    <input type="text"
+                           name="reply"
+                           placeholder="Write reply..."
+                           required>
+
+                    <button type="submit">
+
+                        Send Reply
+
+                    </button>
+
+                </form>
+
+                <a href="/delete_doubt/{{ student }}/{{ loop.index0 }}"
+                   class="delete-btn">
+
+                   Delete Doubt
+
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        {% endfor %}
+
+    </div>
+
+</div>
+</html>

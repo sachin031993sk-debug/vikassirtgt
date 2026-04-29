@@ -1,0 +1,53 @@
+<!-- templates/student_login.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Student Login</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body class="login-page">
+
+<div class="login-box">
+
+    <img src="https://cdn-icons-png.flaticon.com/512/2202/2202112.png"
+         class="login-image">
+
+    <div class="login-title">
+        Student Login
+    </div>
+
+    <div class="login-subtitle">
+        Access Notes & Marks
+    </div>
+
+    <form method="POST">
+
+        <input type="text"
+               name="student_id"
+               placeholder="Student ID">
+
+        <input type="text"
+               name="roll"
+               placeholder="Roll Number">
+
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

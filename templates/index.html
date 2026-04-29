@@ -1,0 +1,154 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Vikas Sir Classes
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body class="home-body">
+
+    <!-- BACKGROUND -->
+
+    <div class="home-bg"></div>
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+
+        <div class="logo">
+            📘 Vikas Sir Classes
+        </div>
+
+        <div class="nav-right">
+            🎓 Online Learning
+        </div>
+
+    </div>
+
+    <!-- HERO SECTION -->
+
+    <div class="hero">
+
+        <div class="hero-left">
+
+            <h1>
+                Learn English <br>
+                Smart & Easy ✨
+            </h1>
+
+            <p>
+                Notes, Video Lectures, Homework,
+                Student Dashboard and more.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="/teacher">
+                    Teacher Login
+                </a>
+
+                <a href="/student"
+                   class="student-btn">
+
+                   Student Login
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-right">
+
+            <div class="hero-card">
+
+                <div class="hero-icon">
+                    📚
+                </div>
+
+                <h2>
+                    English Learning Portal
+                </h2>
+
+                <p>
+                    Modern dashboard for teachers
+                    and students with mobile UI.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FEATURES -->
+
+    <div class="features">
+
+        <div class="feature-box">
+
+            <div class="feature-icon">
+                📄
+            </div>
+
+            <h3>
+                Notes
+            </h3>
+
+            <p>
+                Upload and download study notes easily.
+            </p>
+
+        </div>
+
+        <div class="feature-box">
+
+            <div class="feature-icon">
+                🎥
+            </div>
+
+            <h3>
+                Video Lectures
+            </h3>
+
+            <p>
+                Watch online classes anytime anywhere.
+            </p>
+
+        </div>
+
+        <div class="feature-box">
+
+            <div class="feature-icon">
+                👨‍🎓
+            </div>
+
+            <h3>
+                Student Access
+            </h3>
+
+            <p>
+                Secure login for every student.
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
