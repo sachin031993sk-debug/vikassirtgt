@@ -9,8 +9,8 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-teacher_username = "admin"
-teacher_password = "1234"
+teacher_username = "Vikas8261"
+teacher_password = "Vik@$"
 
 videos = []
 doubts = {}
